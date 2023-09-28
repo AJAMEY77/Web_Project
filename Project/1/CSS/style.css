@@ -1,0 +1,168 @@
+*{
+    padding: 0;
+    margin: 0;
+
+}
+
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-color: rgb(176, 176, 239);
+}
+
+.box{
+    width: 380px;
+    height: 420px;
+    border-radius: 8px;
+    position: relative;
+    background-color: antiquewhite;
+    overflow: hidden;
+    box-shadow: 10px 12px 14px ;
+}
+
+.box::before{
+    content: '';
+    position: absolute;
+    width: 380px;
+    height: 420px;
+    top: -50%;
+    left: -50%;
+    background: linear-gradient(0deg, transparent, red, red);
+    animation: animate 6s linear infinite;
+    transform-origin: bottom right;
+
+}
+
+
+.box::after{
+    content: '';
+    position: absolute;
+    width: 380px;
+    height: 420px;
+    top: -50%;
+    left: -50%;
+    background: linear-gradient(0deg, transparent, lime, lime);
+    animation: animate 6s linear infinite;
+    transform-origin: bottom right;
+    animation-delay: -3s;
+
+}
+
+@keyframes animate{
+    0%{
+        transform: rotate(0deg);
+    }
+
+    100%{
+        transform: rotate(360deg);
+    }
+}
+
+
+.form{
+    inset: 4px;
+    background-color: azure;
+    position: absolute;
+    z-index: 10;
+    padding: 40px 40px;
+    display: flex;
+    flex-direction: column;
+}
+
+.form h2{
+    color: orange;
+    font-weight: 500;
+    text-align: center;
+    letter-spacing: 0.1rem;
+}
+
+.inp{
+    position: relative;
+    width: 300px;
+    margin-top: 35px;
+}
+
+.inp input{
+    position: relative;
+    width: 100%;
+    padding: 20px 10px 10px;
+    background: transparent;
+     border: none;
+    outline: none; 
+    color: white;
+    font-size: 1em;
+    /* letter-spacing: 0.5rem; */
+    z-index: 10;
+}
+
+.inp span{
+    position: absolute;
+    /* left: 0; */
+    padding: 1px 10px 10px;
+    font-size: 1em;
+    color: black;
+    pointer-events: none;
+    transition: 0.5s;
+
+}
+
+.inp input:valid ~ span,
+.inp input:focus ~ span
+{
+    color: deepskyblue;
+    transform: translateY(-65px);
+    font-size: 0.75em;
+}
+
+.inp i{
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 2px;
+    background: deepskyblue;
+    border-radius: 4px;
+    transition: 0.5s;
+    pointer-events: none;
+
+}
+
+.inp input:valid ~ i,
+.inp input:focus ~ i
+{
+    height: 44px;
+}
+
+.link {
+    justify-content: space-between;
+    display: flex;
+    color: black;
+    /* text-decoration: none; */
+}
+
+.link a{
+    text-decoration: none;
+}
+
+.link a:hover{
+    color: deepskyblue;
+}
+
+input[type="submit"]{
+    border: none;
+    outline: none;
+    background: deepskyblue;
+    padding: 11px 25px;
+    width: 100px;
+    margin-top: 10px;
+    border-radius: 4px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+input[type="submit"]:active{
+    opacity: 0.8;
+    
+}
